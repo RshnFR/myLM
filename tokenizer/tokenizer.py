@@ -1,4 +1,4 @@
-class BPETokenizener:
+class BPETokenizer:
     def __init__(self):
         self.vocab = []
         self.vocab_size = 0

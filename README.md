@@ -1,5 +1,12 @@
 # myLM
 Implementation of Language Models.
 
-## 1.myBPE
+
+## Architecture
+
+## 1.Tokenizer
 Implementation of a tokenizer using de byte pair encoding method
+
+## 2.N-gram
+
+
