@@ -1,7 +1,7 @@
 class BPETokenizer:
     def __init__(self):
-        self.vocab = []
-        self.vocab_size = 0
+        self.vocab = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' ', '.', ',', '?', '!', ':', ';', '-', '_', '+', '=', '(', ')', '{', '}', '[', ']', '<', '>', '/', '\\']
+        self.vocab_size = len(self.vocab)
 
     @staticmethod
     def get_stats(ids):
@@ -39,7 +39,8 @@ class BPETokenizer:
             if not skip:
                 new_text.append(text[-1])
             text = new_text
-        self.vocab = pairs
+        self.vocab = self.vocab + pairs
+        self.vocab = list(dict.fromkeys(self.vocab))
         self.vocab_size = len(pairs)
 
     def encode(self, text):
@@ -72,7 +73,7 @@ class BPETokenizer:
     
 
 if __name__ == '__main__':
-    bpe = BPETokenizener()
+    bpe = BPETokenizer()
     #long text
     text = "I want to go to the beach. There for I will go to the beach. I will go to the beach and I will have fun."
     bpe.bpe_train(text, 12)
