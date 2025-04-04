@@ -14,6 +14,7 @@ Sentiment Analysis done through Stanford's sst2 and imdb database (see utils.py)
 ## 3.TF-IDF
 Implementation of term frequency - inverse document frequency.
 
+## 4. Feedforward neural-network
 
 
 
