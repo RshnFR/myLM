@@ -15,8 +15,8 @@ Sentiment Analysis done through Stanford's sst2 and imdb database (see utils.py)
 Implementation of term frequency - inverse document frequency.
 
 ## 4. Feedforward neural-network
-
-
+Implementation of feedforward neural-network with keras.
+Accuracy is pretty low as expected.
 
 ### TO-DO:
 Redo everything with existing library.
