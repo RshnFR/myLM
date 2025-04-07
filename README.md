@@ -22,6 +22,10 @@ Accuracy is pretty low as expected.
 Implementation of recurrent neural network.
 Accuracy : 0.84
 
+## 6. LSTM
+Implementation of a LSTM.
+Accuracy : 0.86
+
 ### TO-DO:
 Redo everything with existing library.
 Redo from scratch (ff-nn,rnn,)
