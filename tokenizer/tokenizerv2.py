@@ -12,5 +12,7 @@ class TokenizerV2 :
         self.token_to_id = {}
         self.id_to_token = {}
         self.special_tokens = {
-            
-        }
+            "<start>": 0,
+            "<end>": 1,
+            "<unknown>": 2,
+        }   
