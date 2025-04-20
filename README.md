@@ -4,6 +4,8 @@ Implementation of Language Models.
 
 ## 1.Tokenizer
 Implementation of a tokenizer using de byte pair encoding method
+### 1.1 Tokevenizer V2
+Better tokenizer with special tokens.
 
 ## 2.Logistic Regression
 Implementation of a basic logistic regression model. Used a very simple example.

@@ -56,7 +56,7 @@ class TokenizerV2 :
         self.build_vocab(all_pre_tokens)
         word_freqs = Counter(all_pre_tokens)
         splits = {word: list(word) + ['</w>'] if word.isalnum() else list(word) for word in word_freqs.keys()}
-        num_merges = 100
+        num_merges = 1000
         merges = {}
         current_splits = splits.copy()
         vocab = self.vocab.copy()
@@ -94,9 +94,18 @@ class TokenizerV2 :
             with open(filename, 'wb') as f:
                 pickle.dump(self, f)
     
-    def load_object(filename):
+    def load_object(self,filename):
         with open(filename, 'rb') as f:
-            return pickle.load(f)
+            tokenizer = pickle.load(f)
+            self.vocab_size = tokenizer.vocab_size
+            self.min_freq = tokenizer.min_freq
+            self.vocab = tokenizer.vocab
+            self.reverse_vocab = tokenizer.reverse_vocab
+            self.merges = tokenizer.merges
+            self.token_to_id = tokenizer.token_to_id
+            self.id_to_token = tokenizer.id_to_token
+            self.special_tokens = tokenizer.special_tokens
+
         
     def encode(self, text):
         """Encodes the text into indices based on the vocabulary dictionary."""
@@ -159,12 +168,10 @@ class TokenizerV2 :
     
 
 if __name__ == "__main__":
-    corpus = [
-        "Hello world! This is a test.",
-        "Another test sentence.",
-        "Yet another test sentence.",
-        "This is a different test.",
-        "Hello again! This is a test."]
+    from datasets import load_dataset
+    ds = load_dataset("stanfordnlp/imdb")
+    corpus = ds['train']['text'][:1000]
+    print("Sample Corpus:", corpus[:5])
     tokenizer = TokenizerV2()
     tokenizer.build_tokenizer(corpus)
     print("Encoded:", tokenizer.encode("Hello world!"))
