@@ -19,6 +19,8 @@ Tested with Stanford's imdb database
 
 ## 3.TF-IDF
 Implementation of term frequency - inverse document frequency.
+## 3.1 TF-IDF V2
+Reimplemented with tokenizer V2.
 
 ## 4.Feedforward Neural Network
 Implementation of feedforward neural-network with keras.
